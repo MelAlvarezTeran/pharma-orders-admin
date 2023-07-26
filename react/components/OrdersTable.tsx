@@ -29,6 +29,7 @@ import startHandlingOrder from '../graphql/startHandlingOrder.gql'
 import invoiceOrder from '../graphql/invoiceOrder.gql'
 import getOrderStatus from '../graphql/getOrderStatus.gql'
 import getOrderDataToInvoice from '../graphql/getOrderDataToInvoice.gql'
+import CreateOrderTable from './CreateOrderTable'
 
 export default function OrdersTable({ orderList }: TableProps) {
   const intl = useIntl()
@@ -139,6 +140,23 @@ export default function OrdersTable({ orderList }: TableProps) {
       },
     },
     {
+      id: 'createOrder',
+      title: intl.formatMessage(titlesIntl.createOrder),
+      cellRenderer: ({ data }: any) => {
+        return (
+          <div>
+            <Button
+              variation="secondary"
+              size="small"
+              onClick={() => handleCreateOrder(data)}
+            >
+              {intl.formatMessage(titlesIntl.createOrder)}
+            </Button>
+          </div>
+        )
+      },
+    },
+    {
       id: 'invoice',
       title: intl.formatMessage(titlesIntl.invoiceNumber),
       cellRenderer: ({ data }: any) => {
@@ -181,11 +199,20 @@ export default function OrdersTable({ orderList }: TableProps) {
 
   const [isProductModalOpen, setIsProductModalOpen] = useState(false)
 
+  const [createOrderModelOpen, setCreateOrderModelOpen] = useState(false)
+
   const [orderIdToModal, setOrderIdToModal] = useState()
+
+  const [orderIdtoCreate, setOrderIdtoCreate] = useState()
 
   const handleModalProductsToggle = (orderId: any) => {
     setOrderIdToModal(orderId)
     setIsProductModalOpen(!isProductModalOpen)
+  }
+
+  const handleCreateOrder = (orderId: any) => {
+    setOrderIdtoCreate(orderId)
+    setCreateOrderModelOpen(!createOrderModelOpen)
   }
 
   const [withCheckboxes, isRowActive, checkboxes] = useColumnsWithCheckboxes({
@@ -970,6 +997,13 @@ export default function OrdersTable({ orderList }: TableProps) {
         onClose={() => handleModalProductsToggle(null)}
       >
         <ProductsTable orderId={orderIdToModal} />
+      </Modal>
+      <Modal
+        centered
+        isOpen={createOrderModelOpen}
+        onClose={() => handleCreateOrder(null)}
+      >
+        <CreateOrderTable orderId={orderIdtoCreate} />
       </Modal>
     </div>
   )

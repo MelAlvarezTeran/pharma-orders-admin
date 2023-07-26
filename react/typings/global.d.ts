@@ -14,6 +14,7 @@ declare global {
     orderId: sting
     products: string
     files: string
+    createOrder: string
     invoice: {
       rowId: number
       invoiceNumber: string

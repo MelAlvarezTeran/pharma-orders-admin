@@ -29,6 +29,7 @@ export default function PharmaOrders() {
         orderId,
         products: orderId,
         files: orderId,
+        createOrder: orderId,
         invoice: {
           rowId: index,
           invoiceNumber,

@@ -51,4 +51,5 @@ export const titlesIntl = defineMessages({
   invoiceNumber: { id: `${prefix}invoiceNumber` },
   placeholderInvoiceNumber: { id: `${prefix}placeholderInvoiceNumber` },
   noInvoiceNumber: { id: `${prefix}noInvoiceNumber` },
+  createOrder: { id: `${prefix}createOrder` },
 })

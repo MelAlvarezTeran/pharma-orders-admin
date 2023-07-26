@@ -48,5 +48,6 @@
   "admin/admin.app.pharma-orders.noOrdersYet": "Ainda não há pedidos farmacêuticos!",
   "admin/admin.app.pharma-orders.invoiceNumber": "Número da fatura",
   "admin/admin.app.pharma-orders.placeholderInvoiceNumber": "Digite se quiser confirmar",
-  "admin/admin.app.pharma-orders.noInvoiceNumber": "Não possui o número da fatura."
+  "admin/admin.app.pharma-orders.noInvoiceNumber": "Não possui o número da fatura.",
+  "admin/admin.app.pharma-orders.createOrder": "Crear Orden"
 }
