@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { Layout, PageHeader, PageBlock } from 'vtex.styleguide'
 import { useIntl } from 'react-intl'

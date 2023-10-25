@@ -15,13 +15,16 @@ export default class MasterDataClient extends ExternalClient {
             context.adminUserAuthToken ??
             context.storeUserAuthToken ??
             context.authToken,
+          'REST-Range': 'resources=0-100',
         },
       }
     )
   }
 
   public async getData() {
-    return this.http.getRaw(`/pharmaOrders/search?_fields=_all`)
+    return this.http.getRaw(
+      `/pharmaOrders/search?_fields=_all&_sort=createdIn DESC`
+    )
   }
 
   public async saveData(body: SaveDataInMasterDataBody) {
